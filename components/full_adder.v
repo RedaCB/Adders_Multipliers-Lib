@@ -24,14 +24,15 @@ module full_adder(
     input cin
 );
 
-// More efficient
-wire ab_xor = a ^ b;
+    wire a_xor_b, a_and_b, axb_and_cin;
+    
+    //Sum
+    xor(a_xor_b, a, b);
+    xor(sum, a_xor_b, cin);
+    
+    // Cout
+    and(a_and_b, a, b);
+    and(axb_and_cin, a_xor_b, cin);
+    or(cout, a_and_b, axb_and_cin);
 
-assign cout = (a & b) | (cin & ab_xor);
-assign sum = ab_xor ^ cin;
-
-/*
-assign sum = a ^ b ^ cin;
-assign cout = (a & b) | (b & cin) | (cin & a);
-*/
 endmodule

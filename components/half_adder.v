@@ -19,12 +19,12 @@
 
 module half_adder(
     output sum,
-    output carry,
+    output cout,
     input a,
     input b
 );
 
-assign sum = a ^ b;
-assign carry = a & b;
+    xor(sum, a, b);
+    and(cout, a, b);
 
 endmodule
