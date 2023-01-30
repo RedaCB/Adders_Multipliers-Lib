@@ -1,4 +1,4 @@
-module dadda_mult_RCA_Reduced_8(product, A, B);
+module dadda_mult_RCA_reduced_8(product, A, B);
     /* This attempt uses CLA of max length 4 but the final stage addition is done
      * using RCAs
      * Area: 1070.47327

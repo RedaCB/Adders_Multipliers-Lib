@@ -44,9 +44,9 @@ end
     half_adder h2(.sum(s1[2]),.cout(c1[2]),.a(gen_pp[4][3]),.b(gen_pp[3][4]));
     half_adder h3(.sum(s1[4]),.cout(c1[4]),.a(gen_pp[4][4]),.b(gen_pp[3][5]));
 
-    csa_dadda c11(.A(gen_pp[7][0]),.B(gen_pp[6][1]),.Cin(gen_pp[5][2]),.Y(s1[1]),.Cout(c1[1]));
-    csa_dadda c12(.A(gen_pp[7][1]),.B(gen_pp[6][2]),.Cin(gen_pp[5][3]),.Y(s1[3]),.Cout(c1[3]));     
-    csa_dadda c13(.A(gen_pp[7][2]),.B(gen_pp[6][3]),.Cin(gen_pp[5][4]),.Y(s1[5]),.Cout(c1[5]));
+    full_adder c11(.sum(s1[1]),.cout(c1[1]),.a(gen_pp[7][0]),.b(gen_pp[6][1]),.cin(gen_pp[5][2]));
+    full_adder c12(.sum(s1[3]),.cout(c1[3]),.a(gen_pp[7][1]),.b(gen_pp[6][2]),.cin(gen_pp[5][3]));     
+    full_adder c13(.sum(s1[5]),.cout(c1[5]),.a(gen_pp[7][2]),.b(gen_pp[6][3]),.cin(gen_pp[5][4]));
     
 //Stage 2 - reducing fom 6 to 4
 
@@ -54,49 +54,49 @@ end
     half_adder h5(.sum(s2[2]),.cout(c2[2]),.a(gen_pp[2][3]),.b(gen_pp[1][4]));
 
 
-    csa_dadda c21(.A(gen_pp[5][0]),.B(gen_pp[4][1]),.Cin(gen_pp[3][2]),.Y(s2[1]),.Cout(c2[1]));
-    csa_dadda c22(.A(s1[0]),.B(gen_pp[4][2]),.Cin(gen_pp[3][3]),.Y(s2[3]),.Cout(c2[3]));
-    csa_dadda c23(.A(gen_pp[2][4]),.B(gen_pp[1][5]),.Cin(gen_pp[0][6]),.Y(s2[4]),.Cout(c2[4]));
-    csa_dadda c24(.A(s1[1]),.B(s1[2]),.Cin(c1[0]),.Y(s2[5]),.Cout(c2[5]));
-    csa_dadda c25(.A(gen_pp[2][5]),.B(gen_pp[1][6]),.Cin(gen_pp[0][7]),.Y(s2[6]),.Cout(c2[6]));
-    csa_dadda c26(.A(s1[3]),.B(s1[4]),.Cin(c1[1]),.Y(s2[7]),.Cout(c2[7]));
-    csa_dadda c27(.A(c1[2]),.B(gen_pp[2][6]),.Cin(gen_pp[1][7]),.Y(s2[8]),.Cout(c2[8]));
-    csa_dadda c28(.A(s1[5]),.B(c1[3]),.Cin(c1[4]),.Y(s2[9]),.Cout(c2[9]));
-    csa_dadda c29(.A(gen_pp[4][5]),.B(gen_pp[3][6]),.Cin(gen_pp[2][7]),.Y(s2[10]),.Cout(c2[10]));
-    csa_dadda c210(.A(gen_pp[7][3]),.B(c1[5]),.Cin(gen_pp[6][4]),.Y(s2[11]),.Cout(c2[11]));
-    csa_dadda c211(.A(gen_pp[5][5]),.B(gen_pp[4][6]),.Cin(gen_pp[3][7]),.Y(s2[12]),.Cout(c2[12]));
-    csa_dadda c212(.A(gen_pp[7][4]),.B(gen_pp[6][5]),.Cin(gen_pp[5][6]),.Y(s2[13]),.Cout(c2[13]));
+    full_adder c21(.sum(s2[1]),.cout(c2[1]),.a(gen_pp[5][0]),.b(gen_pp[4][1]),.cin(gen_pp[3][2]));
+    full_adder c22(.sum(s2[3]),.cout(c2[3]),.a(s1[0]),.b(gen_pp[4][2]),.cin(gen_pp[3][3]));
+    full_adder c23(.sum(s2[4]),.cout(c2[4]),.a(gen_pp[2][4]),.b(gen_pp[1][5]),.cin(gen_pp[0][6]));
+    full_adder c24(.sum(s2[5]),.cout(c2[5]),.a(s1[1]),.b(s1[2]),.cin(c1[0]));
+    full_adder c25(.sum(s2[6]),.cout(c2[6]),.a(gen_pp[2][5]),.b(gen_pp[1][6]),.cin(gen_pp[0][7]));
+    full_adder c26(.sum(s2[7]),.cout(c2[7]),.a(s1[3]),.b(s1[4]),.cin(c1[1]));
+    full_adder c27(.sum(s2[8]),.cout(c2[8]),.a(c1[2]),.b(gen_pp[2][6]),.cin(gen_pp[1][7]));
+    full_adder c28(.sum(s2[9]),.cout(c2[9]),.a(s1[5]),.b(c1[3]),.cin(c1[4]));
+    full_adder c29(.sum(s2[10]),.cout(c2[10]),.a(gen_pp[4][5]),.b(gen_pp[3][6]),.cin(gen_pp[2][7]));
+    full_adder c210(.sum(s2[11]),.cout(c2[11]),.a(gen_pp[7][3]),.b(c1[5]),.cin(gen_pp[6][4]));
+    full_adder c211(.sum(s2[12]),.cout(c2[12]),.a(gen_pp[5][5]),.b(gen_pp[4][6]),.cin(gen_pp[3][7]));
+    full_adder c212(.sum(s2[13]),.cout(c2[13]),.a(gen_pp[7][4]),.b(gen_pp[6][5]),.cin(gen_pp[5][6]));
     
 //Stage 3 - reducing fom 4 to 3
 
     half_adder h6(.sum(s3[0]),.cout(c3[0]),.a(gen_pp[3][0]),.b(gen_pp[2][1]));
 
-    csa_dadda c31(.A(s2[0]),.B(gen_pp[2][2]),.Cin(gen_pp[1][3]),.Y(s3[1]),.Cout(c3[1]));
-    csa_dadda c32(.A(s2[1]),.B(s2[2]),.Cin(c2[0]),.Y(s3[2]),.Cout(c3[2]));
-    csa_dadda c33(.A(c2[1]),.B(c2[2]),.Cin(s2[3]),.Y(s3[3]),.Cout(c3[3]));
-    csa_dadda c34(.A(c2[3]),.B(c2[4]),.Cin(s2[5]),.Y(s3[4]),.Cout(c3[4]));
-    csa_dadda c35(.A(c2[5]),.B(c2[6]),.Cin(s2[7]),.Y(s3[5]),.Cout(c3[5]));
-    csa_dadda c36(.A(c2[7]),.B(c2[8]),.Cin(s2[9]),.Y(s3[6]),.Cout(c3[6]));
-    csa_dadda c37(.A(c2[9]),.B(c2[10]),.Cin(s2[11]),.Y(s3[7]),.Cout(c3[7]));
-    csa_dadda c38(.A(c2[11]),.B(c2[12]),.Cin(s2[13]),.Y(s3[8]),.Cout(c3[8]));
-    csa_dadda c39(.A(gen_pp[7][5]),.B(gen_pp[6][6]),.Cin(gen_pp[5][7]),.Y(s3[9]),.Cout(c3[9]));
+    full_adder c31(.sum(s3[1]),.cout(c3[1]),.a(s2[0]),.b(gen_pp[2][2]),.cin(gen_pp[1][3]));
+    full_adder c32(.sum(s3[2]),.cout(c3[2]),.a(s2[1]),.b(s2[2]),.cin(c2[0]));
+    full_adder c33(.sum(s3[3]),.cout(c3[3]),.a(c2[1]),.b(c2[2]),.cin(s2[3]));
+    full_adder c34(.sum(s3[4]),.cout(c3[4]),.a(c2[3]),.b(c2[4]),.cin(s2[5]));
+    full_adder c35(.sum(s3[5]),.cout(c3[5]),.a(c2[5]),.b(c2[6]),.cin(s2[7]));
+    full_adder c36(.sum(s3[6]),.cout(c3[6]),.a(c2[7]),.b(c2[8]),.cin(s2[9]));
+    full_adder c37(.sum(s3[7]),.cout(c3[7]),.a(c2[9]),.b(c2[10]),.cin(s2[11]));
+    full_adder c38(.sum(s3[8]),.cout(c3[8]),.a(c2[11]),.b(c2[12]),.cin(s2[13]));
+    full_adder c39(.sum(s3[9]),.cout(c3[9]),.a(gen_pp[7][5]),.b(gen_pp[6][6]),.cin(gen_pp[5][7]));
 
 //Stage 4 - reducing fom 3 to 2
 
     half_adder h7(.sum(s4[0]),.cout(c4[0]),.a(gen_pp[2][0]),.b(gen_pp[1][1]));
 
 
-    csa_dadda c41(.A(s3[0]),.B(gen_pp[1][2]),.Cin(gen_pp[0][3]),.Y(s4[1]),.Cout(c4[1]));
-    csa_dadda c42(.A(c3[0]),.B(s3[1]),.Cin(gen_pp[0][4]),.Y(s4[2]),.Cout(c4[2]));
-    csa_dadda c43(.A(c3[1]),.B(s3[2]),.Cin(gen_pp[0][5]),.Y(s4[3]),.Cout(c4[3]));
-    csa_dadda c44(.A(c3[2]),.B(s3[3]),.Cin(s2[4]),.Y(s4[4]),.Cout(c4[4]));
-    csa_dadda c45(.A(c3[3]),.B(s3[4]),.Cin(s2[6]),.Y(s4[5]),.Cout(c4[5]));
-    csa_dadda c46(.A(c3[4]),.B(s3[5]),.Cin(s2[8]),.Y(s4[6]),.Cout(c4[6]));
-    csa_dadda c47(.A(c3[5]),.B(s3[6]),.Cin(s2[10]),.Y(s4[7]),.Cout(c4[7]));
-    csa_dadda c48(.A(c3[6]),.B(s3[7]),.Cin(s2[12]),.Y(s4[8]),.Cout(c4[8]));
-    csa_dadda c49(.A(c3[7]),.B(s3[8]),.Cin(gen_pp[4][7]),.Y(s4[9]),.Cout(c4[9]));
-    csa_dadda c410(.A(c3[8]),.B(s3[9]),.Cin(c2[13]),.Y(s4[10]),.Cout(c4[10]));
-    csa_dadda c411(.A(c3[9]),.B(gen_pp[7][6]),.Cin(gen_pp[6][7]),.Y(s4[11]),.Cout(c4[11]));
+    full_adder c41(.sum(s4[1]),.cout(c4[1]),.a(s3[0]),.b(gen_pp[1][2]),.cin(gen_pp[0][3]));
+    full_adder c42(.sum(s4[2]),.cout(c4[2]),.a(c3[0]),.b(s3[1]),.cin(gen_pp[0][4]));
+    full_adder c43(.sum(s4[3]),.cout(c4[3]),.a(c3[1]),.b(s3[2]),.cin(gen_pp[0][5]));
+    full_adder c44(.sum(s4[4]),.cout(c4[4]),.a(c3[2]),.b(s3[3]),.cin(s2[4]));
+    full_adder c45(.sum(s4[5]),.cout(c4[5]),.a(c3[3]),.b(s3[4]),.cin(s2[6]));
+    full_adder c46(.sum(s4[6]),.cout(c4[6]),.a(c3[4]),.b(s3[5]),.cin(s2[8]));
+    full_adder c47(.sum(s4[7]),.cout(c4[7]),.a(c3[5]),.b(s3[6]),.cin(s2[10]));
+    full_adder c48(.sum(s4[8]),.cout(c4[8]),.a(c3[6]),.b(s3[7]),.cin(s2[12]));
+    full_adder c49(.sum(s4[9]),.cout(c4[9]),.a(c3[7]),.b(s3[8]),.cin(gen_pp[4][7]));
+    full_adder c410(.sum(s4[10]),.cout(c4[10]),.a(c3[8]),.b(s3[9]),.cin(c2[13]));
+    full_adder c411(.sum(s4[11]),.cout(c4[11]),.a(c3[9]),.b(gen_pp[7][6]),.cin(gen_pp[6][7]));
     
 //Stage 5 - reducing fom 2 to 1
     // adding total sum and carry to get final output
@@ -105,23 +105,23 @@ end
 
 
 
-    csa_dadda c51(.A(s4[0]),.B(gen_pp[0][2]),.Cin(c5[0]),.Y(product[2]),.Cout(c5[1]));
-    csa_dadda c52(.A(c4[0]),.B(s4[1]),.Cin(c5[1]),.Y(product[3]),.Cout(c5[2]));
-    csa_dadda c54(.A(c4[1]),.B(s4[2]),.Cin(c5[2]),.Y(product[4]),.Cout(c5[3]));
-    csa_dadda c55(.A(c4[2]),.B(s4[3]),.Cin(c5[3]),.Y(product[5]),.Cout(c5[4]));
-    csa_dadda c56(.A(c4[3]),.B(s4[4]),.Cin(c5[4]),.Y(product[6]),.Cout(c5[5]));
-    csa_dadda c57(.A(c4[4]),.B(s4[5]),.Cin(c5[5]),.Y(product[7]),.Cout(c5[6]));
-    csa_dadda c58(.A(c4[5]),.B(s4[6]),.Cin(c5[6]),.Y(product[8]),.Cout(c5[7]));
-    csa_dadda c59(.A(c4[6]),.B(s4[7]),.Cin(c5[7]),.Y(product[9]),.Cout(c5[8]));
-    csa_dadda c510(.A(c4[7]),.B(s4[8]),.Cin(c5[8]),.Y(product[10]),.Cout(c5[9]));
-    csa_dadda c511(.A(c4[8]),.B(s4[9]),.Cin(c5[9]),.Y(product[11]),.Cout(c5[10]));
-    csa_dadda c512(.A(c4[9]),.B(s4[10]),.Cin(c5[10]),.Y(product[12]),.Cout(c5[11]));
-    csa_dadda c513(.A(c4[10]),.B(s4[11]),.Cin(c5[11]),.Y(product[13]),.Cout(c5[12]));
-    csa_dadda c514(.A(c4[11]),.B(gen_pp[7][7]),.Cin(c5[12]),.Y(product[14]),.Cout(c5[13]));
+    full_adder c51(.sum(product[2]),.cout(c5[1]),.a(s4[0]),.b(gen_pp[0][2]),.cin(c5[0]));
+    full_adder c52(.sum(product[3]),.cout(c5[2]),.a(c4[0]),.b(s4[1]),.cin(c5[1]));
+    full_adder c54(.sum(product[4]),.cout(c5[3]),.a(c4[1]),.b(s4[2]),.cin(c5[2]));
+    full_adder c55(.sum(product[5]),.cout(c5[4]),.a(c4[2]),.b(s4[3]),.cin(c5[3]));
+    full_adder c56(.sum(product[6]),.cout(c5[5]),.a(c4[3]),.b(s4[4]),.cin(c5[4]));
+    full_adder c57(.sum(product[7]),.cout(c5[6]),.a(c4[4]),.b(s4[5]),.cin(c5[5]));
+    full_adder c58(.sum(product[8]),.cout(c5[7]),.a(c4[5]),.b(s4[6]),.cin(c5[6]));
+    full_adder c59(.sum(product[9]),.cout(c5[8]),.a(c4[6]),.b(s4[7]),.cin(c5[7]));
+    full_adder c510(.sum(product[10]),.cout(c5[9]),.a(c4[7]),.b(s4[8]),.cin(c5[8]));
+    full_adder c511(.sum(product[11]),.cout(c5[10]),.a(c4[8]),.b(s4[9]),.cin(c5[9]));
+    full_adder c512(.sum(product[12]),.cout(c5[11]),.a(c4[9]),.b(s4[10]),.cin(c5[10]));
+    full_adder c513(.sum(product[13]),.cout(c5[12]),.a(c4[10]),.b(s4[11]),.cin(c5[11]));
+    full_adder c514(.sum(product[14]),.cout(c5[13]),.a(c4[11]),.b(gen_pp[7][7]),.cin(c5[12]));
 
     assign product[0] =  gen_pp[0][0];
     assign product[15] = c5[13];
     
   
     
-endmodule 
+endmodule
