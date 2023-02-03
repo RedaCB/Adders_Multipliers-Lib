@@ -1,6 +1,6 @@
-module kogge_stone_4(in1, in2, sum, cin, cout);
+module kogge_stone_4(a, b, sum, cin, cout);
 
-    input [3:0] in1, in2; //input
+    input [3:0] a, b; //input
     output [3:0] sum; //output
     input cin; //carry-in
     output cout; //carry-out
@@ -9,8 +9,8 @@ module kogge_stone_4(in1, in2, sum, cin, cout);
     G_B, P_B,
     G_C, P_C;
 
-    assign P_Z = in1 ^ in2;
-    assign G_Z = in1 & in2;
+    assign P_Z = a ^ b;
+    assign G_Z = a & b;
 
     gray_cell level_0A(cin, P_Z[0], G_Z[0], G_A[0]);
     black_cell level_1A(G_Z[0], P_Z[1], G_Z[1], P_Z[0], G_A[1], P_A[1]);
