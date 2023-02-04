@@ -1,7 +1,10 @@
-module kogge_stone_64(output [63:0] sum,
-        output cout,
-        input [63:0] a,
-        input [63:0] b);
+module kogge_stone_64(
+    output [63:0] sum,
+    output cout,
+    input [63:0] a,
+    input [63:0] b,
+    input cin
+);
 
     /* 
      * Area: 3520.688503
@@ -9,7 +12,6 @@ module kogge_stone_64(output [63:0] sum,
      * Timing: 0.68ns
      */
 
-    assign cin = 0;
     wire[63:0] G_0;
     wire[63:0] P_0;
     wire[63:0] G_1;

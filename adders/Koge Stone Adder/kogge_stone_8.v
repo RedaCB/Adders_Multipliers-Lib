@@ -1,13 +1,11 @@
-module kogge_stone_8(a, b, sum, cin, cout);
-    /* This is a 8 bit kogge-stone parallel prefix adder
-     * Area: 262.338693
-     * Power: 9.9864e-02 mW
-     * Timing: 0.37ns
-     */
-    input [7:0] a, b; //input
-    output [7:0] sum; //output
-    input cin; //carry-in
-    output cout; //carry-out
+module kogge_stone_8(
+    output [7:0] sum,
+    output cout,
+    input [7:0] a,
+    input [7:0] b,
+    input cin
+);
+
     wire [7:0] G_Z, P_Z, //wires
     G_A, P_A,
     G_B, P_B,

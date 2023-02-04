@@ -1,9 +1,11 @@
-module kogge_stone_4(a, b, sum, cin, cout);
+module kogge_stone_4(
+    output [3:0] sum,
+    output cout,
+    input [3:0] a,
+    input [3:0] b,
+    input cin
+);
 
-    input [3:0] a, b; //input
-    output [3:0] sum; //output
-    input cin; //carry-in
-    output cout; //carry-out
     wire [3:0] G_Z, P_Z, //wires
     G_A, P_A,
     G_B, P_B,

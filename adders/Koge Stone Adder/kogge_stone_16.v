@@ -1,14 +1,11 @@
-module kogge_stone_16(a, b, sum, cin, cout);
+module kogge_stone_16(
+    output [15:0] sum,
+    output cout,
+    input [15:0] a,
+    input [15:0] b,
+    input cin
+);
 
-    /* This is a 16 bit kogge-stone parallel prefix adder
-     * Area: 631.677782
-     * Power: 0.2349mW
-     * Timing: 0.46ns
-     */
-    input [15:0] a, b; //input
-    output [15:0] sum; //output
-    input cin; //carry-in
-    output cout; //carry-out
     wire [15:0] G_Z, P_Z, //wires
     G_A, P_A,
     G_B, P_B,
